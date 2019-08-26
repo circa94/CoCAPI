@@ -1,2 +1,2 @@
 # CoCAPI
-.NET ready to use implementation of the Clash of Clans REST API
+.NET (soon) ready to use implementation of the Clash of Clans REST API
