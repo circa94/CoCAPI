@@ -8,5 +8,7 @@ namespace CoCAPI.Constants
     {
         public const string Always = "always";
         public const string Never = "never";
+        public const string MoreThanOncePerWeek = "moreThanOncePerWeek";
+        public const string OncePerWeek = "oncePerWeek";
     }
 }
