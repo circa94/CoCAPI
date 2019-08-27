@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
+using CoCAPI.Builders;
 using CoCAPI.Responses;
 using Newtonsoft.Json;
 
@@ -36,6 +38,12 @@ namespace CoCAPI
                 return player;
             }
             return null;
+        }
+
+
+        public IClanSearchBuilder Clans()
+        {
+            return new ClanSearchBuilder(httpClient);
         }
     }
 }
