@@ -24,8 +24,7 @@ namespace CoCAPI.Builders
         /// <returns></returns>
         public IClanSearchBuilder WithName(string clanName)
         {
-            searchString += $"name={clanName}&";
-            return this;
+            return AppendSearchParameter("clanName", clanName);
         }
 
         /// <summary>
@@ -35,7 +34,78 @@ namespace CoCAPI.Builders
         /// <returns></returns>
         public IClanSearchBuilder WithWarFrequency(string warFrequency)
         {
-            searchString += $"warFrequency={warFrequency}&";
+            return AppendSearchParameter("warFrequency", warFrequency);
+        }
+
+        /// <summary>
+        /// Filter by clan location identifier.
+        /// </summary>
+        /// <param name="locationId"></param>
+        /// <returns></returns>
+        public IClanSearchBuilder WithLocationId(int locationId)
+        {
+            return AppendSearchParameter("locationId", locationId);
+        }
+
+        /// <summary>
+        /// Filter by minimum number of clan members
+        /// </summary>
+        /// <param name="minMembers"></param>
+        /// <returns></returns>
+        public IClanSearchBuilder WithMinMembers(int minMembers)
+        {
+            return AppendSearchParameter("minMembers", minMembers);
+        }
+
+        /// <summary>
+        /// Filter by maximum number of clan members
+        /// </summary>
+        /// <param name="maxMembers"></param>
+        /// <returns></returns>
+        public IClanSearchBuilder WithMaxMembers(int maxMembers)
+        {
+            return AppendSearchParameter("maxMembers", maxMembers);
+        }
+
+        /// <summary>
+        /// Filter by minimum amount of clan points.
+        /// </summary>
+        /// <param name="minClanPoints"></param>
+        /// <returns></returns>
+        public IClanSearchBuilder WithMinClanPoints(int minClanPoints)
+        {
+            return AppendSearchParameter("minClanPoints", minClanPoints);
+        }
+
+        /// <summary>
+        /// Filter by minimum clan level.
+        /// </summary>
+        /// <param name="minClanLevel"></param>
+        /// <returns></returns>
+        public IClanSearchBuilder WithMinClanLevel(int minClanLevel)
+        {
+            return AppendSearchParameter("minClanLevel", minClanLevel);
+        }
+
+        /// <summary>
+        /// Limit the number of items returned in the response.
+        /// </summary>
+        /// <param name="limit"></param>
+        /// <returns></returns>
+        public IClanSearchBuilder WithLimt(int limit)
+        {
+            return AppendSearchParameter("limit", limit);
+        }
+
+        /// <summary>
+        /// Adds a new parameter to the search.
+        /// </summary>
+        /// <param name="paramName">Name of the paramter.</param>
+        /// <param name="paramValue">Value of the paramter.</param>
+        /// <returns></returns>
+        private IClanSearchBuilder AppendSearchParameter(string paramName, object paramValue)
+        {
+            searchString += $"{paramName}={paramValue}&";
             return this;
         }
 

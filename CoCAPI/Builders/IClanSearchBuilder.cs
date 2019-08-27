@@ -22,6 +22,48 @@ namespace CoCAPI.Builders
         IClanSearchBuilder WithWarFrequency(string warFrequency);
 
         /// <summary>
+        /// Filter by clan location identifier.
+        /// </summary>
+        /// <param name="locationId"></param>
+        /// <returns></returns>
+        IClanSearchBuilder WithLocationId(int locationId);
+
+        /// <summary>
+        /// Filter by minimum number of clan members
+        /// </summary>
+        /// <param name="minMembers"></param>
+        /// <returns></returns>
+        IClanSearchBuilder WithMinMembers(int minMembers);
+
+        /// <summary>
+        /// Filter by maximum number of clan members
+        /// </summary>
+        /// <param name="maxMembers"></param>
+        /// <returns></returns>
+        IClanSearchBuilder WithMaxMembers(int maxMembers);
+
+        /// <summary>
+        /// Filter by minimum amount of clan points.
+        /// </summary>
+        /// <param name="minClanPoints"></param>
+        /// <returns></returns>
+        IClanSearchBuilder WithMinClanPoints(int minClanPoints);
+
+        /// <summary>
+        /// Filter by minimum clan level.
+        /// </summary>
+        /// <param name="minClanLevel"></param>
+        /// <returns></returns>
+        IClanSearchBuilder WithMinClanLevel(int minClanLevel);
+
+        /// <summary>
+        /// Limit the number of items returned in the response.
+        /// </summary>
+        /// <param name="limit"></param>
+        /// <returns></returns>
+        IClanSearchBuilder WithLimt(int limit);
+
+        /// <summary>
         /// Executes the clan search.
         /// </summary>
         /// <returns></returns>
