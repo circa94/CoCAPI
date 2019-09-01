@@ -15,9 +15,15 @@ namespace CoCAPI.Builders
             this.clanTag = clanTag;
         }
 
+        public IClanMembersSearchBuilder WithLimit(int limit)
+        {
+            AppendSearchParameter("limit", limit);
+            return this;
+        }
+
         public async Task<ICollection<ClanMember>> Search()
         {
-            HttpResponseMessage response = await httpClient.GetAsync($"clans/{clanTag}/members");
+            HttpResponseMessage response = await httpClient.GetAsync($"clans/{clanTag}/members?{searchString}");
             if (response.IsSuccessStatusCode)
             {
                 string json = await response.Content.ReadAsStringAsync();
