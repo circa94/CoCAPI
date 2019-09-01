@@ -1,6 +1,6 @@
 namespace CoCAPI.Responses
 {
-    public class MemberList
+    public class ClanMember
     {
         public string Tag { get; set; }
         public string Name { get; set; }

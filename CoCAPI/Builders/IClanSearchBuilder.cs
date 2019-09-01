@@ -63,10 +63,6 @@ namespace CoCAPI.Builders
         /// <returns></returns>
         IClanSearchBuilder WithLimt(int limit);
 
-        /// <summary>
-        /// Executes the clan search.
-        /// </summary>
-        /// <returns></returns>
         Task<ICollection<Clan>> Search();
     }
 }

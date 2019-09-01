@@ -1,20 +1,15 @@
 ﻿using CoCAPI.Responses;
 using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading.Tasks;
 
 namespace CoCAPI.Builders
 {
-    public class ClanSearchBuilder : IClanSearchBuilder
+    public class ClanSearchBuilder : SearchBuilder, IClanSearchBuilder
     {
-        private string searchString = "";
-        private readonly HttpClient httpClient;
-
-        public ClanSearchBuilder(HttpClient httpClient)
-        {
-            this.httpClient = httpClient;
-        }
+        public ClanSearchBuilder(HttpClient httpClient) : base(httpClient) { }
 
         /// <summary>
         /// Search clans by name. If name is used as part of search query, it needs to be at least three characters long. 
@@ -24,7 +19,8 @@ namespace CoCAPI.Builders
         /// <returns></returns>
         public IClanSearchBuilder WithName(string clanName)
         {
-            return AppendSearchParameter("clanName", clanName);
+            AppendSearchParameter("clanName", clanName);
+            return this;
         }
 
         /// <summary>
@@ -34,7 +30,8 @@ namespace CoCAPI.Builders
         /// <returns></returns>
         public IClanSearchBuilder WithWarFrequency(string warFrequency)
         {
-            return AppendSearchParameter("warFrequency", warFrequency);
+            AppendSearchParameter("warFrequency", warFrequency);
+            return this;
         }
 
         /// <summary>
@@ -44,7 +41,8 @@ namespace CoCAPI.Builders
         /// <returns></returns>
         public IClanSearchBuilder WithLocationId(int locationId)
         {
-            return AppendSearchParameter("locationId", locationId);
+            AppendSearchParameter("locationId", locationId);
+            return this;
         }
 
         /// <summary>
@@ -54,7 +52,8 @@ namespace CoCAPI.Builders
         /// <returns></returns>
         public IClanSearchBuilder WithMinMembers(int minMembers)
         {
-            return AppendSearchParameter("minMembers", minMembers);
+            AppendSearchParameter("minMembers", minMembers);
+            return this;
         }
 
         /// <summary>
@@ -64,7 +63,8 @@ namespace CoCAPI.Builders
         /// <returns></returns>
         public IClanSearchBuilder WithMaxMembers(int maxMembers)
         {
-            return AppendSearchParameter("maxMembers", maxMembers);
+            AppendSearchParameter("maxMembers", maxMembers);
+            return this;
         }
 
         /// <summary>
@@ -74,7 +74,8 @@ namespace CoCAPI.Builders
         /// <returns></returns>
         public IClanSearchBuilder WithMinClanPoints(int minClanPoints)
         {
-            return AppendSearchParameter("minClanPoints", minClanPoints);
+            AppendSearchParameter("minClanPoints", minClanPoints);
+            return this;
         }
 
         /// <summary>
@@ -84,7 +85,8 @@ namespace CoCAPI.Builders
         /// <returns></returns>
         public IClanSearchBuilder WithMinClanLevel(int minClanLevel)
         {
-            return AppendSearchParameter("minClanLevel", minClanLevel);
+            AppendSearchParameter("minClanLevel", minClanLevel);
+            return this;
         }
 
         /// <summary>
@@ -94,18 +96,7 @@ namespace CoCAPI.Builders
         /// <returns></returns>
         public IClanSearchBuilder WithLimt(int limit)
         {
-            return AppendSearchParameter("limit", limit);
-        }
-
-        /// <summary>
-        /// Adds a new parameter to the search.
-        /// </summary>
-        /// <param name="paramName">Name of the paramter.</param>
-        /// <param name="paramValue">Value of the paramter.</param>
-        /// <returns></returns>
-        private IClanSearchBuilder AppendSearchParameter(string paramName, object paramValue)
-        {
-            searchString += $"{paramName}={paramValue}&";
+            AppendSearchParameter("limit", limit);
             return this;
         }
 

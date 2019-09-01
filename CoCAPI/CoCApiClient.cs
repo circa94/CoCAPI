@@ -28,22 +28,19 @@ namespace CoCAPI
             this.baseUrl = baseUrl;
         }
 
-        public async Task<Player> PlayerWithTag(string playerTag)
+        public IPlayerSearchBuilder Players()
         {
-            HttpResponseMessage response = await httpClient.GetAsync("players/" + playerTag);
-            if (response.IsSuccessStatusCode)
-            {
-                string json = await response.Content.ReadAsStringAsync();
-                Player player = JsonConvert.DeserializeObject<Player>(json);
-                return player;
-            }
-            return null;
+            return new PlayerSearchBuilder(httpClient);
         }
-
 
         public IClanSearchBuilder Clans()
         {
             return new ClanSearchBuilder(httpClient);
+        }
+
+        public IClanTagSearchBuilder Clans(string clanTag)
+        {
+            return new ClanTagSearchBuilder(httpClient, clanTag);
         }
     }
 }

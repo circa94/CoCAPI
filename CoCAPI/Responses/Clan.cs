@@ -21,6 +21,6 @@ namespace CoCAPI.Responses
         public int WarLosses { get; set; }
         public bool IsWarLogPublic { get; set; }
         public int Members { get; set; }
-        public ICollection<MemberList> MemberList { get; set; }
+        public ICollection<ClanMember> MemberList { get; set; }
     }
 }
