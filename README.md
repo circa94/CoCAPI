@@ -1,4 +1,4 @@
-# Welcome to CoCAPi!
+# Welcome to CoCAPI!
 
  **CoCAPI** is a cross-platform, ready to use implementation of the Clash of Clans REST API for .NET
  It is still in development and not all features are implemented, yet. 
