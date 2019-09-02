@@ -47,17 +47,21 @@ Some examples:
      
      //Search for any clan
      ICollection<Clan> clans = await api.Clans()
-	     .WithName("!!!")
+     	.WithName("!!!")
 	     .WithWarFrequency(WarFrequency.Always)
 	     .Search();
 	     
 	     
-	 // search for 10 german clans with min. level 10
-	 ICollection<Clan> germanClans = await api.Clans()
-		 .WithLocationId(32000094)
-		 .WithLimt(10)
-		 .WithMinClanLevel(10)
-		 .Search();
+	// search for 10 german clans with min. level 10
+	ICollection<Clan> germanClans = await api.Clans()
+		.WithLocationId(32000094)
+		.WithLimt(10)
+		.WithMinClanLevel(10)
+		.Search();
+	
+	
+	// list all members of clan
+	ICollection<ClanMember> members = await api.Clans("#9908QC9Y").Members().Search();
 
 
      //search for a specific player
