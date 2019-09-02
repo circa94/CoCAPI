@@ -7,6 +7,8 @@ namespace CoCAPI.Builders
     {
         IClanMembersSearchBuilder Members();
 
+        IClanWarLogSearchBuilder WarLog();
+
         Task<Clan> Search();
     }
 }

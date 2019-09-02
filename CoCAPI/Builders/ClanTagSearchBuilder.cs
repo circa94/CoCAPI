@@ -19,6 +19,11 @@ namespace CoCAPI.Builders
             return new ClanMembersSearchBuilder(httpClient, clanTag);
         }
 
+        public IClanWarLogSearchBuilder WarLog()
+        {
+            return new ClanWarLogSearchBuilder(httpClient, clanTag);
+        }
+
         public async Task<Clan> Search()
         {
             HttpResponseMessage response = await httpClient.GetAsync($"clans/{clanTag}");
