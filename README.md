@@ -13,7 +13,7 @@
  - [x] Search all clans
  - [x] Get information about a single clan by clan tag
  - [x] List clan members
- - [ ] Retrieve clan's clan war log
+ - [x] Retrieve clan's clan war log
  - [ ] Retrieve information about clan's current clan war
  - [ ] Retrieve information about clan's current clan war league group
  - [ ] Retrieve information about individual clan war league war
